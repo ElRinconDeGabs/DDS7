@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Llenar Arreglo con Números Pares</title>
+    <title>Generar Matriz Identidad</title>
 </head>
-
 <body>
-    <h1>Llenar Arreglo con Números Pares</h1>
+    <h1>Generar Matriz Identidad</h1>
+    
+    <form method="POST" action="">
+        <label for="n">Ingrese el valor de N (número par):</label>
+        <input type="number" id="n" name="n" required>
+        <input type="submit" value="Generar Matriz">
+    </form>
 
-    <ul id="arreglo">
-        <?php
-        $arreglo = array();
-        $cantidadElementos = 5;
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $numero = intval($_POST["numero"]);
-
-            if ($numero % 2 === 0) {
-                $arreglo[] = $numero;
-            } else {
-                echo "<p>El número ingresado ($numero) no es par. Introduzca un número par.</p>";
+    <?php
+    function generarMatrizIdentidad($n) {
+        $matriz = array();
+        
+        for ($i = 0; $i < $n; $i++) {
+            $fila = array();
+            
+            for ($j = 0; $j < $n; $j++) {
+                if ($i == $j) {
+                    $fila[] = 1; // Elementos de la diagonal principal son 1
+                } else {
+                    $fila[] = 0; // Otros elementos son 0
+                }
             }
+            
+            $matriz[] = $fila;
         }
-        foreach ($arreglo as $valor) {
-            echo "<li>$valor</li>";
-        }
-        ?>
-    </ul>
+        
+        return $matriz;
+    }
 
-    <?php
-    if (count($arreglo) < $cantidadElementos) {
-    ?>
-        <form method="POST" action="">
-            <label for="numero">Ingrese un número par:</label>
-            <input type="number" id="numero" name="numero" required>
-            <input type="submit" value="Agregar número">
-        </form>
-    <?php
-    } else {
-        echo "<p>Se han ingresado $cantidadElementos números pares.</p>";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $n = intval($_POST["n"]);
+
+        if ($n % 2 == 0) { // Verificar si N es un número par
+            $matrizIdentidad = generarMatrizIdentidad($n);
+            
+            // Mostrar la matriz identidad
+            echo "<h2>Matriz Identidad de Orden $n:</h2>";
+            echo "<pre>";
+            foreach ($matrizIdentidad as $fila) {
+                echo implode(" ", $fila) . "<br>";
+            }
+            echo "</pre>";
+        } else {
+            echo "<p>Por favor, ingrese un número par.</p>";
+        }
     }
     ?>
 </body>
-
 </html>
