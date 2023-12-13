@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #0d7377 0%, #155799 100%);
+    color: #fff;
+    font-size: 16px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kanban-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.kanban-head-title {
+    font-size: 2.5rem;
+    color: #f9f9f9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 1rem;
+    margin: 0.3rem;
+    background-color: #0d7377;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.kanban-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.kanban-form-container {
+    grid-column: span 3;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.kanban-block {
+    text-align: center;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #0d7377;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.kanban-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0d7377;
+    margin-bottom: 15px;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-crear,
+.btn-editar,
+.btn-eliminar {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: 0;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.btn-crear {
+    background: #14bdac;
+    color: #fff;
+}
+
+.btn-crear:hover {
+    background: #12a593;
+}
+
+.btn-editar {
+    background: #7af56a;
+    color: #fff;
+}
+
+.btn-editar:hover {
+    background: #5af546;
+}
+
+.btn-eliminar {
+    background: #ff6b6b;
+    color: #fff;
+}
+
+.btn-eliminar:hover {
+    background: #f54949;
+}
+
+.kanban-block:nth-child(odd) {
+    background-color: #e0e0e0;
+}
+
+.kanban-block:nth-child(even) {
+    background-color: #d3d3d3;
+}
+
+#por-leer {
+    height: fit-content;
+    background-color: #5d9cec; /* Azul claro */
+}
+
+#leyendo {
+    height: fit-content;
+    background-color: #4aa0e0; /* Azul medio */
+}
+
+#leido {
+    height: fit-content;
+    background-color: #2e88c4; /* Azul oscuro */
+}
+
+/* Estilos para los contenedores de los libros */
+#leyendo,
+#por-leer,
+#leido {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.libro {
+    width: 250px;
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.libro p {
+    margin: 10px 0;
+}
+
+.btn-eliminar .btn-editar {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 8px;
+    text-align: center;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-eliminar {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 8px; /* Agregado espacio entre los botones */
+}
+
+.btn-editar {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    text-align: center;
+    background-color: #7af56a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 8px; /* Agregado espacio entre los botones */
+}
+
+.btn-eliminar:hover {
+    background-color: #c82333;
+}
+
+.btn-editar:hover {
+    background-color: #5af546;
+}
+
+.container-inputs {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px; /* Ajustar el ancho máximo del contenedor de inputs */
+    margin: 20px auto; /* Centrar el contenedor de inputs y agregar espacio */
+}
+
+.strong-input {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.input-text {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+}
+
+.input-text:focus {
+    outline: none;
+    border-color: #7af56a;
+    box-shadow: 0 0 8px rgba(122, 245, 106, 0.5);
+}
+
+/* Estilos para la posición del botón de logout */
+.logout-container {
+    position: absolute;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 10px; /* Ajusta la distancia desde la izquierda */
+}
+
+/* Estilos para el botón de logout */
+.btn-logout {
+    padding: 8px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
